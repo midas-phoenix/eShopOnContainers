@@ -1,5 +1,4 @@
-﻿using Autofac.Extensions.DependencyInjection;
-using Catalog.API.Extensions;
+﻿using Catalog.API.Extensions;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
@@ -12,9 +11,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Serilog;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 
 namespace Microsoft.eShopOnContainers.Services.Catalog.API
@@ -66,7 +63,7 @@ namespace Microsoft.eShopOnContainers.Services.Catalog.API
 
         private static IWebHost CreateHostBuilder(IConfiguration configuration, string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseConfiguration(configuration)
+                .ConfigureAppConfiguration(x => x.AddConfiguration(configuration))
                 .CaptureStartupErrors(false)
                 .ConfigureKestrel(options =>
                 {
@@ -82,7 +79,6 @@ namespace Microsoft.eShopOnContainers.Services.Catalog.API
 
                 })
                 .UseStartup<Startup>()
-                .UseApplicationInsights()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseWebRoot("Pics")
                 .UseSerilog()

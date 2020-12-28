@@ -8,7 +8,7 @@ Sample .NET Core reference application, powered by Microsoft, based on a simplif
 
 ![](img/eshop-webmvc-app-screenshot.png)
 
-## Azure DevOps - Build Status 
+## Azure DevOps - Build Status
 
 | Image | Status | Image | Status |
 | ------------- | ------------- | ------------- | ------------- |
@@ -21,28 +21,47 @@ Sample .NET Core reference application, powered by Microsoft, based on a simplif
 | Ordering API | [![Ordering API](https://msftdevtools.visualstudio.com/eShopOnContainers/_apis/build/status/microservices/ordering?branchName=dev)](https://msftdevtools.visualstudio.com/eShopOnContainers/_build/latest?definitionId=198&branchName=dev) | Webhooks Client | [![Webhooks demo client](https://msftdevtools.visualstudio.com/eShopOnContainers/_apis/build/status/microservices/webhooks-client?branchName=dev)](https://msftdevtools.visualstudio.com/eShopOnContainers/_build/latest?definitionId=208&branchName=dev) |
 | Payment API | [![Payment API](https://msftdevtools.visualstudio.com/eShopOnContainers/_apis/build/status/microservices/payment?branchName=dev)](https://msftdevtools.visualstudio.com/eShopOnContainers/_build/latest?definitionId=205&branchName=dev) | | |
 
-_**Dev** branch contains the latest **beta** code and their images are tagged with `:dev` in our [Docker Hub](https://hub.docker.com/u/eshop)_
+_**Dev** branch contains the latest **beta** code and their images are tagged with `:linux-dev` in our [Docker Hub](https://hub.docker.com/u/eshop)_
 
 ## Getting Started
 
-eShopOnContainers is provided in two flavors: Basic and Advanced.
+Make sure you have [installed](https://docs.docker.com/docker-for-windows/install/) and [configured](https://github.com/dotnet-architecture/eShopOnContainers/wiki/Windows-setup#configure-docker) docker in your environment. After that, you can run the below commands from the **/src/** directory and get started with the `eShopOnContainers` immediately.
+
+```powershell
+docker-compose build
+docker-compose up
+```
+
+You should be able to browse different components of the application by using the below URLs :
+
+```
+Web Status : http://host.docker.internal:5107/
+Web MVC :  http://host.docker.internal:5100/
+Web SPA :  http://host.docker.internal:5104/
+```
+
+>Note: If you are running this application in macOS then use `docker.for.mac.localhost` as DNS name in `.env` file and the above URLs instead of `host.docker.internal`.
+
+Below are the other avenues to setup *eShopOnContainers*.
 
 ### Basic scenario
 
-The basic scenario can be run locally using docker compose, and also deployed to a local Kubernetes cluster. Refer these Wiki pages to Get Started:
+The basic scenario can be run locally using docker-compose, and also deployed to a local Kubernetes cluster. Refer to these Wiki pages to Get Started:
 
-- [CLI or Visual Studio Code](https://github.com/dotnet-architecture/eShopOnContainers/wiki/Windows-setup)
+
 - [Visual Studio (F5 experience)](https://github.com/dotnet-architecture/eShopOnContainers/wiki/Windows-setup#optional---use-visual-studio)
-- [Docker compose](https://github.com/dotnet-architecture/eShopOnContainers/wiki/Docker-compose-deployment-files)
+- [Docker compose on windows](https://github.com/dotnet-architecture/eShopOnContainers/wiki/Windows-setup)
+- [Docker compose on macOS](https://github.com/dotnet-architecture/eShopOnContainers/wiki/Mac-setup)
 - [Local Kubernetes](https://github.com/dotnet-architecture/eShopOnContainers/wiki/Deploy-to-Local-Kubernetes)
 
 ### Advanced scenario
 
-The Advanced scenario can be run only in a Kubernetes cluster. Currently this scenario is the same as basic scenario with the following differences:
+The Advanced scenario can be run only in a Kubernetes cluster. Currently this scenario is the same as a basic scenario with the following differences:
 
 - [Deploy to AKS with a Service Mesh for resiliency](https://github.com/dotnet-architecture/eShopOnContainers/wiki/Deploy-to-Azure-Kubernetes-Service-(AKS))
 
 In the future more features will be implemented in the advanced scenario.
+
 
 ## IMPORTANT NOTES!
 
@@ -55,7 +74,7 @@ Do you want to be up-to-date on .NET Architecture guidance and reference apps li
 
 ## Updated for .NET Core 3.1 (LTS)
 
-eShopOnContainers is updated to .NET Core 3.1  "wave" of technologies. Not just compilation but also new recommended code in EF Core, ASP.NET Core, and other new related versions and a several significant changes.
+eShopOnContainers is updated to .NET Core 3.1  "wave" of technologies. Not just compilation but also new recommended code in EF Core, ASP.NET Core, and other new related versions with several significant changes.
 
 **See more details in the [Release notes](https://github.com/dotnet-architecture/eShopOnContainers/wiki/Release-notes) wiki page**.
 
@@ -82,14 +101,13 @@ You can download them and start reviewing these Guides/eBooks here:
 
 | Architecting & Developing | Containers Lifecycle & CI/CD | App patterns with Xamarin.Forms |
 | ------------ | ------------|  ------------|
-| [![](img/Microservices-cover-small.png)](https://aka.ms/microservicesebook) | [![](img/DevOps-Cover-small.png)](https://aka.ms/dockerlifecycleebook) | [![](img/xamarin-enterprise-patterns-ebook-cover-small.png)](https://aka.ms/xamarinpatternsebook) |
-| <sup> <a href='https://aka.ms/microservicesebook'>**Download .PDF**</a> </sup>  | <sup> <a href='https://aka.ms/dockerlifecycleebook'>**Download** </a>  </sup> | <sup> <a href='https://aka.ms/xamarinpatternsebook'>**Download**  </a>  </sup> |
+| [![](img/architecture-book-cover-large-we.png)](https://aka.ms/microservicesebook) | [![](img/devops-book-cover-large-we.png)](https://aka.ms/dockerlifecycleebook) | [![](img/xamarin-enterprise-patterns-ebook-cover-large-we.png)](https://aka.ms/xamarinpatternsebook) |
+| <sup> <a href='https://aka.ms/microservicesebook'>**Download PDF**</a> </sup>  | <sup> <a href='https://aka.ms/dockerlifecycleebook'>**Download PDF** </a>  </sup> | <sup> <a href='https://aka.ms/xamarinpatternsebook'>**Download PDF**  </a>  </sup> |
 
-Download in other formats (**eReaders** like **MOBI**, **EPUB**) and other eBooks at the [.NET Architecture center](http://dot.net/architecture).
+For more free e-Books check out [.NET Architecture center](https://dot.net/architecture). If you have an e-book feedback, let us know by creating a new issue here: <https://github.com/dotnet-architecture/ebooks/issues>
 
-If you have an e-book feedback, create a new issue here: <https://github.com/dotnet-architecture/ebooks/issues>
-
-However, we encourage you to download and review the [.NET Microservices: Architecture for Containerized .NET Applications e-book](https://aka.ms/microservicesebook) because the architectural styles, patterns, and technologies explained in the guide use this reference application when explaining most implementations, so you'll understand the context, design and decisions taken in the current architecture and internal designs much better.
+## Are you new to **microservices** and **cloud-native development**? 
+Take a look at the free course [Create and deploy a cloud-native ASP.NET Core microservice](https://docs.microsoft.com/en-us/learn/modules/microservices-aspnet-core/) on MS Learn.  This module explains microservices concepts, cloud-native technologies, and reduce the friction in getting started with `eShopOnContainers`.
 
 ## Read further
 
